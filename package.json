@@ -1,0 +1,19 @@
+{
+  "name": "odin-weather-app",
+  "version": "1.0.0",
+  "description": "Weather forecast app from the odin project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnthonyHeinrichs/odin-weather-app.git"
+  },
+  "author": "Anthony Heinrichs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnthonyHeinrichs/odin-weather-app/issues"
+  },
+  "homepage": "https://github.com/AnthonyHeinrichs/odin-weather-app#readme"
+}
