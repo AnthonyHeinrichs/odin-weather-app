@@ -1,0 +1,1 @@
+(()=>{const e=document.getElementById("main"),n=document.createElement("h1");n.innerHTML="Weather Forecast",e.appendChild(n)})();
