@@ -1,1 +1,1 @@
-(()=>{const e=document.getElementById("main"),n=document.createElement("h1");n.innerHTML="Weather Forecast",e.appendChild(n)})();
+(()=>{"use strict";const e=document.getElementById("main"),t=document.createElement("h1");t.innerHTML="Weather Forecast",e.appendChild(t),(async(e,t,a)=>{try{const e=await fetch("https://api.openweathermap.org/data/2.5/forecast?lon=13.4050&lat=52.5200&cont=1&appid=82401161e4362bdbac9573f0b61d3f82",{mode:"cors"});return await e.json()}catch(e){console.log(e)}})().then((e=>{console.log(e)}))})();
