@@ -29,13 +29,24 @@ export default function initialPageLoad() {
   mainDiv.appendChild(locationDiv)
 
   const city = document.createElement('h2')
-  city.innerHTML = 'Berlin'
   city.id = 'city'
   locationDiv.appendChild(city)
   
   const country = document.createElement('h2')
-  country.innerHTML = 'DE'
   country.id = 'country'
   locationDiv.appendChild(country)
+
+  const currentWeatherDiv = document.createElement('div')
+  mainDiv.appendChild(currentWeatherDiv)
+
+  const currentWeather = document.createElement('h3')
+  currentWeather.classList.add('currentWeather')
+  currentWeather.id = 'currentWeather'
+  currentWeatherDiv.appendChild(currentWeather)
+
+  const currentTemp = document.createElement('h3')
+  currentTemp.classList.add('currentTemp')
+  currentTemp.id = 'currentTemp'
+  currentWeatherDiv.appendChild(currentTemp)
 }
 
