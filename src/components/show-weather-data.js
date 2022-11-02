@@ -2,11 +2,11 @@
 const showWeatherData = (data, unit) => {
   let temp = 0
 
-  if (unit === 'c') {
+  if (unit == 'c') {
     let kelvin = data.main.temp
     temp = kelvin - 273.15
     temp = temp.toFixed()
-  } else if (unit === 'f') {
+  } else if (unit == 'f') {
     let kelvin = data.main.temp
     temp = (kelvin -273.15) * 1.8 + 32
     temp = temp.toFixed()
@@ -30,7 +30,6 @@ const showWeatherData = (data, unit) => {
 
   const temperature = document.getElementById('currentTemp')
   temperature.innerHTML = temp
-
 }
 
 export {showWeatherData}

@@ -34,7 +34,7 @@ form.addEventListener('submit', (e) => {
       let lat = data.coord.lat
       let days = 7
       getWeatherData(lon, lat, days).then(data => {
-        showWeatherData(data)
+        showWeatherData(data, unit)
       })
     } else {
       loader.classList.add('hidden')
