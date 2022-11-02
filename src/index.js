@@ -5,6 +5,7 @@ import { showWeatherData } from './components/show-weather-data'
 
 initialPageLoad()
 const loader = document.getElementById('loader')
+let unit = 'c'
 
 getCityCoordinates('Berlin').then(data => {
   if (data.cod === 200) {
@@ -12,7 +13,7 @@ getCityCoordinates('Berlin').then(data => {
     let lat = data.coord.lat
     let days = 7
     getWeatherData(lon, lat, days).then(data => {
-      showWeatherData(data)
+      showWeatherData(data, unit)
     })
   } else {
     loader.classList.add('hidden')
@@ -41,4 +42,3 @@ form.addEventListener('submit', (e) => {
     }
   })
 }) 
-
