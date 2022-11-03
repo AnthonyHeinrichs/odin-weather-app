@@ -1062,7 +1062,6 @@ const showWeatherData = (data, unit, forecast) => {
     const temperature = document.getElementById('currentTemp')
     temperature.innerText = temp
   }
-}
 
 
 
