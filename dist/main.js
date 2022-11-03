@@ -874,7 +874,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "showWeatherData": () => (/* binding */ showWeatherData)
 /* harmony export */ });
-
 const showWeatherData = (data, unit, forecast) => {
   // Getting all forecast day divs
   const dayOneDiv = document.getElementById('dayOneDiv')

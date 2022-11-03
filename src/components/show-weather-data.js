@@ -1,4 +1,3 @@
-
 const showWeatherData = (data, unit, forecast) => {
   // Getting all forecast day divs
   const dayOneDiv = document.getElementById('dayOneDiv')
@@ -9,7 +8,6 @@ const showWeatherData = (data, unit, forecast) => {
 
   for (let i = 0; i < days.length; i++) {
     days[i].classList.remove('show')
-  }
 
   const convertTemp = (temp) => {
     if (unit === 'c') {
