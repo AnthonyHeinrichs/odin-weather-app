@@ -58,4 +58,3 @@ forecastBtn.addEventListener('click', () => {
   
   getWeather(location)
 })
-

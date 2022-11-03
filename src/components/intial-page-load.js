@@ -84,4 +84,3 @@ export default function initialPageLoad() {
   dayfourDiv.id = 'dayFourDiv'
   forecastWeatherDiv.appendChild(dayfourDiv)
 }
-

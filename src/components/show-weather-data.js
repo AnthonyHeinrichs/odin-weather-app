@@ -1,4 +1,3 @@
-
 const showWeatherData = (data, unit, forecast) => {
   // Getting all forecast day divs
   const dayOneDiv = document.getElementById('dayOneDiv')
