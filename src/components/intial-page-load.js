@@ -1,5 +1,6 @@
 import '../styles/loader-styles.css'
 import '../global-styles.css'
+import '../styles/forecast-weather.css'
 
 export default function initialPageLoad() {
   const mainDiv = document.getElementById('main')
@@ -63,5 +64,25 @@ export default function initialPageLoad() {
   dayOneDiv.classList.add('dayOneDiv')
   dayOneDiv.id = 'dayOneDiv'
   forecastWeatherDiv.appendChild(dayOneDiv)
+
+  const dayOneAverage = document.createElement('h2')
+  dayOneAverage.classList.add('averageTemp')
+  dayOneAverage.id = 'dayOneAverage'
+  dayOneDiv.appendChild(dayOneAverage)
+
+  const dayTwoDiv = document.createElement('div')
+  dayTwoDiv.classList.add('dayTwoDiv')
+  dayTwoDiv.id = 'dayTwoDiv'
+  forecastWeatherDiv.appendChild(dayTwoDiv)
+
+  const dayThreeDiv = document.createElement('div')
+  dayThreeDiv.classList.add('dayThreeDiv')
+  dayThreeDiv.id = 'dayThreeDiv'
+  forecastWeatherDiv.appendChild(dayThreeDiv)
+
+  const dayfourDiv = document.createElement('div')
+  dayfourDiv.classList.add('dayfourDiv')
+  dayfourDiv.id = 'dayFourDiv'
+  forecastWeatherDiv.appendChild(dayfourDiv)
 }
 
