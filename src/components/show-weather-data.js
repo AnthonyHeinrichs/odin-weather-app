@@ -1,5 +1,16 @@
 
 const showWeatherData = (data, unit, forecast) => {
+  // Getting all forecast day divs
+  const dayOneDiv = document.getElementById('dayOneDiv')
+  const dayTwoDiv = document.getElementById('dayTwoDiv')
+  const dayThreeDiv = document.getElementById('dayThreeDiv')
+  const dayFourDiv = document.getElementById('dayFourDiv')
+  const days = [dayOneDiv, dayTwoDiv, dayThreeDiv, dayFourDiv]
+
+  for (let i = 0; i < days.length; i++) {
+    days[i].classList.remove('show')
+  }
+
   const convertTemp = (temp) => {
     if (unit === 'c') {
       let kelvin = temp
@@ -14,13 +25,6 @@ const showWeatherData = (data, unit, forecast) => {
   }
 
   if (forecast) {
-    // Getting all forecast day divs
-    const dayOneDiv = document.getElementById('dayOneDiv')
-    const dayTwoDiv = document.getElementById('dayTwoDiv')
-    const dayThreeDiv = document.getElementById('dayThreeDiv')
-    const dayFourDiv = document.getElementById('dayFourDiv')
-    const days = [dayOneDiv, dayTwoDiv, dayThreeDiv, dayFourDiv]
-    
     // Iterating over the days to remove any child nodes
     for (let i = 0; i < days.length; i++) {
       // Checking first if the days have child nodes
@@ -58,32 +62,83 @@ const showWeatherData = (data, unit, forecast) => {
       day = day.getDay()
       // If day is today, tomorrow etc. then showing data in DOM
       if (day === dayOne) {
+        //Displaying temperature by hour
+        let hourTemp = dataForecastList[i].main.temp
+        hourTemp = convertTemp(hourTemp)
+        let hourTempParam = document.createElement('p')
+        hourTempParam.classList.add('hourTemp')
+        hourTempParam.innerText = `${hourTemp}`
+        dayOneDiv.appendChild(hourTempParam)
+
+        // Displaying weather description for day 1 (today)
         let weather = dataForecastList[i].weather[0].description
-        let weatherPara = document.createElement('p')
-        weatherPara.classList.add('forecastWeather')
-        weatherPara.innerHTML = weather
-        dayOneDiv.appendChild(weatherPara)
+        let weatherParam = document.createElement('p')
+        weatherParam.classList.add('forecastWeather')
+        weatherParam.innerHTML = weather
+        dayOneDiv.appendChild(weatherParam)
       } else if (day === dayTwo) {
+        //Displaying temperature by hour
+        let hourTemp = dataForecastList[i].main.temp
+        hourTemp = convertTemp(hourTemp)
+        let hourTempParam = document.createElement('p')
+        hourTempParam.classList.add('hourTemp')
+        hourTempParam.innerText = `${hourTemp}`
+        dayTwoDiv.appendChild(hourTempParam)
+
+        // Displaying weather description for day 2 (tomorrow)
         let weather = dataForecastList[i].weather[0].description
-        let weatherPara = document.createElement('p')
-        weatherPara.classList.add('forecastWeather')
-        weatherPara.innerHTML = weather
-        dayTwoDiv.appendChild(weatherPara)
+        let weatherParam = document.createElement('p')
+        weatherParam.classList.add('forecastWeather')
+        weatherParam.innerHTML = weather
+        dayTwoDiv.appendChild(weatherParam)
       } else if (day === dayThree) {
+        //Displaying temperature by hour
+        let hourTemp = dataForecastList[i].main.temp
+        hourTemp = convertTemp(hourTemp)
+        let hourTempParam = document.createElement('p')
+        hourTempParam.classList.add('hourTemp')
+        hourTempParam.innerText = `${hourTemp}`
+        dayThreeDiv.appendChild(hourTempParam)
+
+        // Displaying weather description for day 3 (day after tomorrow)
         let weather = dataForecastList[i].weather[0].description
-        let weatherPara = document.createElement('p')
-        weatherPara.classList.add('forecastWeather')
-        weatherPara.innerHTML = weather
-        dayThreeDiv.appendChild(weatherPara)
+        let weatherParam = document.createElement('p')
+        weatherParam.classList.add('forecastWeather')
+        weatherParam.innerHTML = weather
+        dayThreeDiv.appendChild(weatherParam)
       } else if (day === dayFour) {
+        //Displaying temperature by hour
+        let hourTemp = dataForecastList[i].main.temp
+        hourTemp = convertTemp(hourTemp)
+        let hourTempParam = document.createElement('p')
+        hourTempParam.classList.add('hourTemp')
+        hourTempParam.innerText = `${hourTemp}`
+        dayFourDiv.appendChild(hourTempParam)
+
+        // Displaying weather description for day 4 (day after the day after tomorrow)
         let weather = dataForecastList[i].weather[0].description
-        let weatherPara = document.createElement('p')
-        weatherPara.classList.add('forecastWeather')
-        weatherPara.innerHTML = weather
-        dayFourDiv.appendChild(weatherPara)
+        let weatherParam = document.createElement('p')
+        weatherParam.classList.add('forecastWeather')
+        weatherParam.innerHTML = weather
+        dayFourDiv.appendChild(weatherParam)
+      }
+
+      for (let i = 0; i < days.length; i++) {
+        days[i].classList.add('show')
       }
     }
   } else {
+    // Iterating over the days to remove any child nodes
+    for (let i = 0; i < days.length; i++) {
+      // Checking first if the days have child nodes
+      if (days[i].hasChildNodes()) {
+        while (days[i].firstChild) {
+          days[i].removeChild(days[i].firstChild)
+        }
+      }
+    }    
+
+    // Getting daily weather data
     let temp = convertTemp(data.main.temp)
     const weather = data.weather[0].description
     const cityName = data.name

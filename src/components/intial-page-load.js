@@ -9,11 +9,6 @@ export default function initialPageLoad() {
   form.id = 'form'
   mainDiv.appendChild(form)
   
-  const locationLabel = document.createElement('label')
-  locationLabel.setAttribute('for', 'location')
-  locationLabel.innerHTML = 'Location:'
-  form.appendChild(locationLabel)
-  
   const locationInput = document.createElement('input')
   locationInput.type = 'text'
   locationInput.id = 'location'
@@ -23,15 +18,12 @@ export default function initialPageLoad() {
 
   const locationSubmitBtn = document.createElement('button')
   locationSubmitBtn.type = 'submit'
-  locationSubmitBtn.innerHTML = 'Go'
+  locationSubmitBtn.id = 'submit'
+  locationSubmitBtn.innerHTML = 'Search'
   form.appendChild(locationSubmitBtn)
-
-  const forecastBtn = document.createElement('button')
-  forecastBtn.id = 'forecastBtn'
-  forecastBtn.innerHTML = '4 day forecast'
-  mainDiv.appendChild(forecastBtn)
-
+  
   const locationDiv = document.createElement('div')
+  locationDiv.classList.add('locationDiv')
   mainDiv.appendChild(locationDiv)
 
   const city = document.createElement('h2')
@@ -44,6 +36,7 @@ export default function initialPageLoad() {
 
   const currentWeatherDiv = document.createElement('div')
   currentWeatherDiv.id = 'currentWeatherDiv'
+  currentWeatherDiv.classList.add('currentWeatherDiv')
   mainDiv.appendChild(currentWeatherDiv)
 
   const currentWeather = document.createElement('h3')
@@ -56,32 +49,38 @@ export default function initialPageLoad() {
   currentTemp.id = 'currentTemp'
   currentWeatherDiv.appendChild(currentTemp)
 
+  const forecastBtn = document.createElement('button')
+  forecastBtn.id = 'forecastBtn'
+  forecastBtn.innerHTML = 'Forecast'
+  forecastBtn.classList.add('forecastBtn')
+  currentWeatherDiv.appendChild(forecastBtn)
+
   const forecastWeatherDiv = document.createElement('div')
   forecastWeatherDiv.id = 'forecastWeatherDiv'
+  forecastWeatherDiv.classList.add('forecastWeatherDiv')
   mainDiv.appendChild(forecastWeatherDiv)
 
   const dayOneDiv = document.createElement('div')
   dayOneDiv.classList.add('dayOneDiv')
+  dayOneDiv.classList.add('hide')
   dayOneDiv.id = 'dayOneDiv'
   forecastWeatherDiv.appendChild(dayOneDiv)
 
-  const dayOneAverage = document.createElement('h2')
-  dayOneAverage.classList.add('averageTemp')
-  dayOneAverage.id = 'dayOneAverage'
-  dayOneDiv.appendChild(dayOneAverage)
-
   const dayTwoDiv = document.createElement('div')
   dayTwoDiv.classList.add('dayTwoDiv')
+  dayTwoDiv.classList.add('hide')
   dayTwoDiv.id = 'dayTwoDiv'
   forecastWeatherDiv.appendChild(dayTwoDiv)
 
   const dayThreeDiv = document.createElement('div')
   dayThreeDiv.classList.add('dayThreeDiv')
+  dayThreeDiv.classList.add('hide')
   dayThreeDiv.id = 'dayThreeDiv'
   forecastWeatherDiv.appendChild(dayThreeDiv)
 
   const dayfourDiv = document.createElement('div')
   dayfourDiv.classList.add('dayfourDiv')
+  dayfourDiv.classList.add('hide')
   dayfourDiv.id = 'dayFourDiv'
   forecastWeatherDiv.appendChild(dayfourDiv)
 }
