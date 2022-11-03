@@ -7,3 +7,45 @@ body {
   display: none;
 }
 
+form {
+  padding: 24px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 12px;
+}
+
+#location {
+  font-size: 24px;
+  border-radius: 5px;
+  border: solid 1px;
+}
+
+#submit {
+  font-size: 24px;
+  background: rgb(144, 144, 209);
+  border-radius: 5px;
+  border: solid 1px;
+}
+
+.locationDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.currentWeatherDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.forecastBtn {
+  font-size: 24px;
+  background: rgb(144, 144, 209);
+  border-radius: 5px;
+  border: solid 1px;
+}
+
+
