@@ -25,6 +25,11 @@ export default function initialPageLoad() {
   locationSubmitBtn.innerHTML = 'Go'
   form.appendChild(locationSubmitBtn)
 
+  const forecastBtn = document.createElement('button')
+  forecastBtn.id = 'forecastBtn'
+  forecastBtn.innerHTML = '4 day forecast'
+  mainDiv.appendChild(forecastBtn)
+
   const locationDiv = document.createElement('div')
   mainDiv.appendChild(locationDiv)
 
@@ -37,6 +42,7 @@ export default function initialPageLoad() {
   locationDiv.appendChild(country)
 
   const currentWeatherDiv = document.createElement('div')
+  currentWeatherDiv.id = 'currentWeatherDiv'
   mainDiv.appendChild(currentWeatherDiv)
 
   const currentWeather = document.createElement('h3')
@@ -48,5 +54,14 @@ export default function initialPageLoad() {
   currentTemp.classList.add('currentTemp')
   currentTemp.id = 'currentTemp'
   currentWeatherDiv.appendChild(currentTemp)
+
+  const forecastWeatherDiv = document.createElement('div')
+  forecastWeatherDiv.id = 'forecastWeatherDiv'
+  mainDiv.appendChild(forecastWeatherDiv)
+
+  const dayOneDiv = document.createElement('div')
+  dayOneDiv.classList.add('dayOneDiv')
+  dayOneDiv.id = 'dayOneDiv'
+  forecastWeatherDiv.appendChild(dayOneDiv)
 }
 
