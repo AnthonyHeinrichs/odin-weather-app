@@ -62,7 +62,15 @@ const showWeatherData = (data, unit, forecast) => {
       day = day.getDay()
       // If day is today, tomorrow etc. then showing data in DOM
       if (day === dayOne) {
-        //Displaying temperature by hour
+        // Displaying time of temperature
+        let time = new Date(dataForecastList[i].dt * 1000)
+        time = time.getHours()
+        let hour = document.createElement('p')
+        hour.classList.add('hour')
+        hour.innerText = `${time}:00`
+        dayOneDiv.appendChild(hour)
+
+        // Displaying temperature by hour
         let hourTemp = dataForecastList[i].main.temp
         hourTemp = convertTemp(hourTemp)
         let hourTempParam = document.createElement('p')
@@ -74,9 +82,17 @@ const showWeatherData = (data, unit, forecast) => {
         let weather = dataForecastList[i].weather[0].description
         let weatherParam = document.createElement('p')
         weatherParam.classList.add('forecastWeather')
-        weatherParam.innerHTML = weather
+        weatherParam.innerText = weather
         dayOneDiv.appendChild(weatherParam)
       } else if (day === dayTwo) {
+        // Displaying time of temperature
+        let time = new Date(dataForecastList[i].dt * 1000)
+        time = time.getHours()
+        let hour = document.createElement('p')
+        hour.classList.add('hour')
+        hour.innerText = `${time}:00`
+        dayTwoDiv.appendChild(hour)
+
         //Displaying temperature by hour
         let hourTemp = dataForecastList[i].main.temp
         hourTemp = convertTemp(hourTemp)
@@ -89,9 +105,17 @@ const showWeatherData = (data, unit, forecast) => {
         let weather = dataForecastList[i].weather[0].description
         let weatherParam = document.createElement('p')
         weatherParam.classList.add('forecastWeather')
-        weatherParam.innerHTML = weather
+        weatherParam.innerText = weather
         dayTwoDiv.appendChild(weatherParam)
       } else if (day === dayThree) {
+        // Displaying time of temperature
+        let time = new Date(dataForecastList[i].dt * 1000)
+        time = time.getHours()
+        let hour = document.createElement('p')
+        hour.classList.add('hour')
+        hour.innerText = `${time}:00`
+        dayThreeDiv.appendChild(hour)
+
         //Displaying temperature by hour
         let hourTemp = dataForecastList[i].main.temp
         hourTemp = convertTemp(hourTemp)
@@ -104,9 +128,17 @@ const showWeatherData = (data, unit, forecast) => {
         let weather = dataForecastList[i].weather[0].description
         let weatherParam = document.createElement('p')
         weatherParam.classList.add('forecastWeather')
-        weatherParam.innerHTML = weather
+        weatherParam.innerText = weather
         dayThreeDiv.appendChild(weatherParam)
       } else if (day === dayFour) {
+        // Displaying time of temperature
+        let time = new Date(dataForecastList[i].dt * 1000)
+        time = time.getHours()
+        let hour = document.createElement('p')
+        hour.classList.add('hour')
+        hour.innerText = `${time}:00`
+        dayFourDiv.appendChild(hour)
+
         //Displaying temperature by hour
         let hourTemp = dataForecastList[i].main.temp
         hourTemp = convertTemp(hourTemp)
@@ -119,7 +151,7 @@ const showWeatherData = (data, unit, forecast) => {
         let weather = dataForecastList[i].weather[0].description
         let weatherParam = document.createElement('p')
         weatherParam.classList.add('forecastWeather')
-        weatherParam.innerHTML = weather
+        weatherParam.innerText = weather
         dayFourDiv.appendChild(weatherParam)
       }
 
@@ -146,16 +178,16 @@ const showWeatherData = (data, unit, forecast) => {
 
     console.log('current weather', data)
     const city = document.getElementById('city')
-    city.innerHTML = cityName
+    city.innerText = cityName
     
     const country = document.getElementById('country')
-    country.innerHTML = countryName
+    country.innerText = countryName
     
     const currentWeather = document.getElementById('currentWeather')
-    currentWeather.innerHTML = weather
+    currentWeather.innerText = weather
   
     const temperature = document.getElementById('currentTemp')
-    temperature.innerHTML = temp
+    temperature.innerText = temp
   }
 }
 

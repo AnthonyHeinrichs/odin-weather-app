@@ -19,7 +19,7 @@ export default function initialPageLoad() {
   const locationSubmitBtn = document.createElement('button')
   locationSubmitBtn.type = 'submit'
   locationSubmitBtn.id = 'submit'
-  locationSubmitBtn.innerHTML = 'Search'
+  locationSubmitBtn.innerText = 'Search'
   form.appendChild(locationSubmitBtn)
   
   const locationDiv = document.createElement('div')
@@ -51,7 +51,7 @@ export default function initialPageLoad() {
 
   const forecastBtn = document.createElement('button')
   forecastBtn.id = 'forecastBtn'
-  forecastBtn.innerHTML = 'Forecast'
+  forecastBtn.innerText = 'Forecast'
   forecastBtn.classList.add('forecastBtn')
   currentWeatherDiv.appendChild(forecastBtn)
 
