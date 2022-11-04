@@ -9,7 +9,7 @@
   opacity: 0;
   filter: blur(2px);
   transform: translateX(-100%);
-  transition: all 1s;
+  transition: all 0.2s;
 }
 
 .show {
@@ -24,29 +24,25 @@
   }
 }
 
-.forecastWeatherDiv div:nth-child(1) {
-  height: 200px;
-  width: 200px;
+#dayOneDiv {
   border: solid 1px;
 }
 
-.forecastWeatherDiv div:nth-child(2) {
+#dayTwoDiv {
+  transition-delay: 100ms;
+  border: solid 1px;
+}
+
+#dayThreeDiv {
   transition-delay: 200ms;
-  height: 200px;
-  width: 200px;
   border: solid 1px;
 }
 
-.forecastWeatherDiv div:nth-child(3) {
-  transition-delay: 400ms;
-  height: 200px;
-  width: 200px;
+#dayFourDiv {
+  transition-delay: 300ms;
   border: solid 1px;
 }
 
-.forecastWeatherDiv div:nth-child(4) {
-  transition-delay: 600ms;
-  height: 200px;
+.forecastDayDiv {
   width: 200px;
-  border: solid 1px;
 }

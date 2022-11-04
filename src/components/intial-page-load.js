@@ -60,26 +60,20 @@ export default function initialPageLoad() {
   forecastWeatherDiv.classList.add('forecastWeatherDiv')
   mainDiv.appendChild(forecastWeatherDiv)
 
-  const dayOneDiv = document.createElement('div')
-  dayOneDiv.classList.add('dayOneDiv')
-  dayOneDiv.classList.add('hide')
-  dayOneDiv.id = 'dayOneDiv'
-  forecastWeatherDiv.appendChild(dayOneDiv)
-
   const dayTwoDiv = document.createElement('div')
-  dayTwoDiv.classList.add('dayTwoDiv')
+  dayTwoDiv.classList.add('forecastDayDiv')
   dayTwoDiv.classList.add('hide')
   dayTwoDiv.id = 'dayTwoDiv'
   forecastWeatherDiv.appendChild(dayTwoDiv)
 
   const dayThreeDiv = document.createElement('div')
-  dayThreeDiv.classList.add('dayThreeDiv')
+  dayThreeDiv.classList.add('forecastDayDiv')
   dayThreeDiv.classList.add('hide')
   dayThreeDiv.id = 'dayThreeDiv'
   forecastWeatherDiv.appendChild(dayThreeDiv)
 
   const dayfourDiv = document.createElement('div')
-  dayfourDiv.classList.add('dayfourDiv')
+  dayfourDiv.classList.add('forecastDayDiv')
   dayfourDiv.classList.add('hide')
   dayfourDiv.id = 'dayFourDiv'
   forecastWeatherDiv.appendChild(dayfourDiv)
