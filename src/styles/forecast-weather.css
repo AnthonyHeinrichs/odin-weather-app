@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
+  margin-top: 48px;
 }
 
 .hide {
@@ -24,25 +25,42 @@
   }
 }
 
-#dayOneDiv {
-  border: solid 1px;
-}
-
 #dayTwoDiv {
   transition-delay: 100ms;
-  border: solid 1px;
 }
 
 #dayThreeDiv {
   transition-delay: 200ms;
-  border: solid 1px;
 }
 
 #dayFourDiv {
   transition-delay: 300ms;
-  border: solid 1px;
 }
 
 .forecastDayDiv {
-  width: 200px;
+  width: 300px;
+  background: black;
+  color: white;
+}
+
+.flexForecast {
+  display: flex;
+  padding: 12px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.forecastDay {
+  font-size: 24px;
+}
+
+.forecastWeather {
+  margin-top: 2px;
+  font-size: 18px;
+}
+
+.forecastAverage {
+  margin-left: 24px;
+  font-size: 62px;
+  font-weight: 100;
 }

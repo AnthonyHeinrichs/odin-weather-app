@@ -4,10 +4,14 @@ import '../styles/forecast-weather.css'
 
 export default function initialPageLoad() {
   const mainDiv = document.getElementById('main')
+
+  const boxDiv = document.createElement('div')
+  boxDiv.classList.add('box')
+  mainDiv.appendChild(boxDiv)
   
   const form = document.createElement('form')
   form.id = 'form'
-  mainDiv.appendChild(form)
+  boxDiv.appendChild(form)
   
   const locationInput = document.createElement('input')
   locationInput.type = 'text'
@@ -21,10 +25,14 @@ export default function initialPageLoad() {
   locationSubmitBtn.id = 'submit'
   locationSubmitBtn.innerText = 'Search'
   form.appendChild(locationSubmitBtn)
+
+  const weatherFlexBox = document.createElement('div')
+  weatherFlexBox.classList.add('weatherFlex')
+  boxDiv.appendChild(weatherFlexBox)
   
   const locationDiv = document.createElement('div')
   locationDiv.classList.add('locationDiv')
-  mainDiv.appendChild(locationDiv)
+  weatherFlexBox.appendChild(locationDiv)
 
   const city = document.createElement('h2')
   city.id = 'city'
@@ -37,28 +45,32 @@ export default function initialPageLoad() {
   const currentWeatherDiv = document.createElement('div')
   currentWeatherDiv.id = 'currentWeatherDiv'
   currentWeatherDiv.classList.add('currentWeatherDiv')
-  mainDiv.appendChild(currentWeatherDiv)
-
-  const currentWeather = document.createElement('h3')
-  currentWeather.classList.add('currentWeather')
-  currentWeather.id = 'currentWeather'
-  currentWeatherDiv.appendChild(currentWeather)
+  weatherFlexBox.appendChild(currentWeatherDiv)
 
   const currentTemp = document.createElement('h3')
   currentTemp.classList.add('currentTemp')
   currentTemp.id = 'currentTemp'
   currentWeatherDiv.appendChild(currentTemp)
 
+  const currentWeather = document.createElement('h3')
+  currentWeather.classList.add('currentWeather')
+  currentWeather.id = 'currentWeather'
+  currentWeatherDiv.appendChild(currentWeather)
+
+  const forecastBtnDiv = document.createElement('div')
+  forecastBtnDiv.classList.add('forecastBtnDiv')
+  boxDiv.appendChild(forecastBtnDiv)
+
   const forecastBtn = document.createElement('button')
   forecastBtn.id = 'forecastBtn'
   forecastBtn.innerText = 'Forecast'
   forecastBtn.classList.add('forecastBtn')
-  currentWeatherDiv.appendChild(forecastBtn)
+  forecastBtnDiv.appendChild(forecastBtn)
 
   const forecastWeatherDiv = document.createElement('div')
   forecastWeatherDiv.id = 'forecastWeatherDiv'
   forecastWeatherDiv.classList.add('forecastWeatherDiv')
-  mainDiv.appendChild(forecastWeatherDiv)
+  boxDiv.appendChild(forecastWeatherDiv)
 
   const dayTwoDiv = document.createElement('div')
   dayTwoDiv.classList.add('forecastDayDiv')
