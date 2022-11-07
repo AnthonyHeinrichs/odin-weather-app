@@ -38,6 +38,7 @@ const showWeatherData = (data, unit, forecast) => {
   }
 
   if (forecast) {
+    console.log(data)
     // Iterating over the days to remove any child nodes
     for (let i = 0; i < days.length; i++) {
       // Checking first if the days have child nodes
@@ -83,6 +84,18 @@ const showWeatherData = (data, unit, forecast) => {
     dayFourFlexLeft.classList.add('flexForecastLeft')
     dayFourFlexLeft.id = 'dayFourFlexLeft'
     dayFourFlex.appendChild(dayFourFlexLeft)
+
+    const dayTwoWeatherIcon = document.createElement('div')
+    dayTwoWeatherIcon.classList.add('weatherIconDiv')
+    dayTwoDiv.appendChild(dayTwoWeatherIcon)
+
+    const dayThreeWeatherIcon = document.createElement('div')
+    dayThreeWeatherIcon.classList.add('weatherIconDiv')
+    dayThreeDiv.appendChild(dayThreeWeatherIcon)
+
+    const dayFourWeatherIcon = document.createElement('div')
+    dayFourWeatherIcon.classList.add('weatherIconDiv')
+    dayFourDiv.appendChild(dayFourWeatherIcon)
 
     const dayTwoHighLowFlex = document.createElement('div')
     dayTwoHighLowFlex.classList.add('flexForecast')
@@ -148,13 +161,20 @@ const showWeatherData = (data, unit, forecast) => {
         hourTemp = parseInt(hourTemp)
         dayTwoTemps.push(hourTemp)
 
-        // Displaying weather description for day 2 (tomorrow)
+        // Displaying weather description and weather icon for day 2 (tomorrow)
         if (time === 13) {
           const weatherParam = document.createElement('p')
           let weather = dataForecastList[i].weather[0].main
           weatherParam.innerText = weather
           weatherParam.classList.add('forecastWeather')
           dayTwoFlexLeft.appendChild(weatherParam)
+
+          const weatherIcon = document.createElement('img')
+          let icon = dataForecastList[i].weather[0].icon
+          weatherIcon.src = `http://openweathermap.org/img/wn/${icon}@2x.png`
+          weatherIcon.alt = 'Weather icon'
+          weatherIcon.classList.add('weatherIcon')
+          dayTwoWeatherIcon.appendChild(weatherIcon)
         }        
 
       } else if (day === dayThree) {
@@ -169,13 +189,20 @@ const showWeatherData = (data, unit, forecast) => {
         hourTemp = parseInt(hourTemp)
         dayThreeTemps.push(hourTemp)
 
-        // Displaying weather description for day 3 (day after tomorrow)
+        // Displaying weather description and weather icon for day 3 (day after tomorrow)
         if (time === 13) {
           const weatherParam = document.createElement('p')
           let weather = dataForecastList[i].weather[0].main
           weatherParam.innerText = weather
           weatherParam.classList.add('forecastWeather')
           dayThreeFlexLeft.appendChild(weatherParam)
+
+          const weatherIcon = document.createElement('img')
+          let icon = dataForecastList[i].weather[0].icon
+          weatherIcon.src = `http://openweathermap.org/img/wn/${icon}@2x.png`
+          weatherIcon.alt = 'Weather icon'
+          weatherIcon.classList.add('weatherIcon')
+          dayThreeWeatherIcon.appendChild(weatherIcon)
         }
 
       } else if (day === dayFour) {
@@ -191,13 +218,20 @@ const showWeatherData = (data, unit, forecast) => {
         hourTemp = parseInt(hourTemp)
         dayFourTemps.push(hourTemp)
 
-        // Displaying weather description for day 3 (day after tomorrow)
+        // Displaying weather description and weather icon for day 3 (day after tomorrow)
         if (time === 13) {
           const weatherParam = document.createElement('p')
           let weather = dataForecastList[i].weather[0].main
           weatherParam.innerText = weather
           weatherParam.classList.add('forecastWeather')
           dayFourFlexLeft.appendChild(weatherParam)
+
+          const weatherIcon = document.createElement('img')
+          let icon = dataForecastList[i].weather[0].icon
+          weatherIcon.src = `http://openweathermap.org/img/wn/${icon}@2x.png`
+          weatherIcon.alt = 'Weather icon'
+          weatherIcon.classList.add('weatherIcon')
+          dayFourWeatherIcon.appendChild(weatherIcon)
         }
       }
     }
