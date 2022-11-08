@@ -82,7 +82,7 @@
 
 /* Mobile styles */
 
-@media only screen and (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .forecastDayDiv {
     width: 85vw;
     background: black;
