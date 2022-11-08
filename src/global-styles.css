@@ -2,7 +2,7 @@
 
 body {
   margin: 0px;
-  height: 100%;
+  min-height: 100%;
   background: url('./assets/tofino.jpg')
 }
 
@@ -22,10 +22,64 @@ h2, h3, p {
 
 .box {
   margin-top: 24px;
-  height: 90vh;
+  margin-bottom: 24px;
+  min-height: 100%;
+  min-height: 90vh;
   width: 90vw;
+  min-width: 95%;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
+}
+
+.optionsDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.temperatureBtnDiv {
+  margin-right: 48px;
+  position: relative;
+}
+
+input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+label {
+	cursor: pointer;
+	width: 80px;
+	height: 35px;
+	background: rgb(129, 126, 126);
+	display: block;
+	border-radius: 100px;
+	position: relative;
+}
+
+label:after {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 24px;
+	height: 24px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+}
+
+input:checked + label {
+	background: #000000;
+}
+
+input:checked + label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+
+label:active:after {
+	width: px;
 }
 
 form {
@@ -35,6 +89,49 @@ form {
   align-items: center;
   gap: 12px;
   margin-left: 24px;
+}
+
+#temperatureFText {
+  font-family: 'Bebas Neue',Arial, Helvetica, sans-serif;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  color: white;
+  margin-left: 12px;
+  margin-top: 2px;
+  font-size: 30px;
+  font-weight: 800;
+  transform:translateX(-100%);
+}
+
+#temperatureCText {
+  font-family: 'Bebas Neue',Arial, Helvetica, sans-serif;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  margin-left: 12px;
+  margin-top: 2px;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.hideTemp {
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.showTemp {
+  opacity: 1;
+}
+
+@media(prefers-reduced-motion) {
+  .hideTemp {
+    transition: none;
+  }
 }
 
 #location {
@@ -63,8 +160,9 @@ form {
 
 #city {
   font-family: 'Bebas Neue',Arial, Helvetica, sans-serif;
-  font-size: 72px;
+  font-size: 120px;
   letter-spacing: 8px;
+  margin-top: 12px;
 }
 
 #country {
@@ -74,18 +172,17 @@ form {
 }
 
 #currentTemp {
-  font-size: 148px;
+  font-size: 164px;
 }
 
 #currentWeather {
   font-size: 48px;
+  margin-left: 12px;
 }
 
 .currentWeatherDiv {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .forecastBtnDiv {
@@ -97,10 +194,14 @@ form {
 }
 
 .forecastBtn {
-  text-decoration-line: underline;
   font-size: 18px;
-  background: none;
+  font-weight: 400;
+  color: white;
+  background: black;
   border: none;
+  border-radius: 10px;
+  height: 30px;
+  width: 120px;
 }
 
 
