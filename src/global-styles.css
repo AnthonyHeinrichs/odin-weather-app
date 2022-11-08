@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;400;500;600;700&display=swap');
 
 body {
   margin: 0px;
@@ -166,27 +167,27 @@ form {
 }
 
 #city {
-  font-family: 'Bebas Neue',Arial, Helvetica, sans-serif;
-  font-size: calc(40px + 4vw);
-  letter-spacing: 8px;
+  font-family: 'Zilla Slab','Bebas Neue',Arial, Helvetica, sans-serif;
+  font-size: calc(40px + 3vw);
+  letter-spacing: 4px;
   margin-top: 12px;
 }
 
 #country {
-  font-family: sans-serif;
+  font-family: 'Zilla Slab','Bebas Neue',Arial, Helvetica, sans-serif;
   letter-spacing: 4px;
   font-size: 36px;
 }
 
 #currentTemp {
+  font-family: 'Zilla Slab','Bebas Neue',Arial, Helvetica, sans-serif;
   font-size: calc(80px + 4vw);
 }
 
 #currentWeather {
-  font-family: sans-serif;
+  font-family: 'Zilla Slab','Bebas Neue',Arial, Helvetica, sans-serif;
   letter-spacing: 4px;
   font-size: 36px;
-  margin-left: 12px;
   margin-top: -6px;
 }
 
@@ -212,6 +213,20 @@ form {
   border-radius: 10px;
   height: 30px;
   width: 120px;
+}
+
+/* Mobile styles */
+
+@media only screen and (max-width: 600px) {
+  .weatherFlex {
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+  }
+
+  #currentTemp {
+    margin-top: 24px;
+  }
 }
 
 
