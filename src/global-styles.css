@@ -3,7 +3,11 @@
 body {
   margin: 0px;
   min-height: 100%;
-  background: url('./assets/tofino.jpg')
+  background: url('./assets/tofino.jpg') no-repeat center center fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
 
 h2, h3, p {
@@ -50,7 +54,8 @@ input[type=checkbox]{
 label {
 	cursor: pointer;
 	width: 80px;
-	height: 35px;
+	height: 34px;
+  margin-top: 6px;
 	background: rgb(129, 126, 126);
 	display: block;
 	border-radius: 100px;
@@ -96,7 +101,7 @@ form {
   pointer-events: none;
   user-select: none;
   position: absolute;
-  top: 18px;
+  top: 24px;
   left: 18px;
   color: white;
   margin-left: 12px;
@@ -111,7 +116,7 @@ form {
   pointer-events: none;
   user-select: none;
   position: absolute;
-  top: 18px;
+  top: 24px;
   right: 18px;
   margin-left: 12px;
   margin-top: 2px;
@@ -136,7 +141,7 @@ form {
 
 #location {
   padding: 8px;
-  height: 12px;
+  height: 18px;
   width: 200px;
   font-size: 18px;
   border-radius: 5px;
@@ -146,6 +151,7 @@ form {
 
 #submit {
   font-size: 18px;
+  height: 35px;
   background: #120404;
   border: none;
   border-radius: 5px;
@@ -155,12 +161,13 @@ form {
 .weatherFlex {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 48px;
+  align-items: baseline;
+  margin-top: 36px;
 }
 
 #city {
   font-family: 'Bebas Neue',Arial, Helvetica, sans-serif;
-  font-size: 120px;
+  font-size: calc(40px + 4vw);
   letter-spacing: 8px;
   margin-top: 12px;
 }
@@ -168,16 +175,19 @@ form {
 #country {
   font-family: sans-serif;
   letter-spacing: 4px;
-  font-size: 24px;
+  font-size: 36px;
 }
 
 #currentTemp {
-  font-size: 164px;
+  font-size: calc(80px + 4vw);
 }
 
 #currentWeather {
-  font-size: 48px;
+  font-family: sans-serif;
+  letter-spacing: 4px;
+  font-size: 36px;
   margin-left: 12px;
+  margin-top: -6px;
 }
 
 .currentWeatherDiv {
