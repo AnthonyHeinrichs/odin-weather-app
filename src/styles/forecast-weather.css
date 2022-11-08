@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
   margin-top: 48px;
   margin-bottom: 48px;
 }
@@ -40,6 +40,7 @@
 
 .forecastDayDiv {
   width: 300px;
+  min-width: 260px;
   background: black;
   color: white;
   border-radius: 5px;
@@ -75,4 +76,21 @@
 
 .forecastHigh, .forecastLow {
   font-size: 24px;
+}
+
+/* Mobile styles */
+
+@media only screen and (max-width: 900px) {
+  .forecastDayDiv {
+    width: 85vw;
+    background: black;
+    color: white;
+    border-radius: 5px;
+  }
+
+  .forecastWeatherDiv {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
