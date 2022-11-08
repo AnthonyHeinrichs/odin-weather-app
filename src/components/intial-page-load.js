@@ -8,10 +8,14 @@ export default function initialPageLoad() {
   const boxDiv = document.createElement('div')
   boxDiv.classList.add('box')
   mainDiv.appendChild(boxDiv)
+
+  const optionsFlexDiv = document.createElement('div')
+  optionsFlexDiv.classList.add('optionsDiv')
+  boxDiv.appendChild(optionsFlexDiv)
   
   const form = document.createElement('form')
   form.id = 'form'
-  boxDiv.appendChild(form)
+  optionsFlexDiv.appendChild(form)
   
   const locationInput = document.createElement('input')
   locationInput.type = 'text'
@@ -25,6 +29,37 @@ export default function initialPageLoad() {
   locationSubmitBtn.id = 'submit'
   locationSubmitBtn.innerText = 'Search'
   form.appendChild(locationSubmitBtn)
+
+  const temperatureBtnDiv = document.createElement('div')
+  temperatureBtnDiv.classList.add('temperatureBtnDiv')
+  optionsFlexDiv.appendChild(temperatureBtnDiv)
+
+  const temperatureInput = document.createElement('input')
+  temperatureInput.id = 'tempSwitch'
+  temperatureInput.setAttribute('type', 'checkbox')
+  temperatureBtnDiv.appendChild(temperatureInput)
+
+  const temperatureLabel = document.createElement('label')
+  temperatureLabel.classList.add('switchCheckboxLabel')
+  temperatureLabel.id = 'switchCheckboxLabel'
+  temperatureLabel.setAttribute('for', 'tempSwitch')
+  temperatureBtnDiv.appendChild(temperatureLabel)
+
+  const temperatureSpan = document.createElement('span')
+  temperatureSpan.classList.add('switchLabelSpan')
+  temperatureLabel.appendChild(temperatureSpan)
+
+  const temperatureCText = document.createElement('p')
+  temperatureCText.id = 'temperatureCText'
+  temperatureCText.innerText = 'c'
+  temperatureCText.classList.add('showTemp')
+  temperatureBtnDiv.appendChild(temperatureCText)
+
+  const temperatureFText = document.createElement('p')
+  temperatureFText.id = 'temperatureFText'
+  temperatureFText.innerText = 'f'
+  temperatureFText.classList.add('hideTemp')
+  temperatureBtnDiv.appendChild(temperatureFText)
 
   const weatherFlexBox = document.createElement('div')
   weatherFlexBox.classList.add('weatherFlex')
@@ -63,7 +98,7 @@ export default function initialPageLoad() {
 
   const forecastBtn = document.createElement('button')
   forecastBtn.id = 'forecastBtn'
-  forecastBtn.innerText = 'Forecast'
+  forecastBtn.innerText = 'Next 3 days'
   forecastBtn.classList.add('forecastBtn')
   forecastBtnDiv.appendChild(forecastBtn)
 

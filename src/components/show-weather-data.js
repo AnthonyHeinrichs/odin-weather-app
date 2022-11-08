@@ -1,3 +1,5 @@
+import { convertTemp } from "./helpers/convert-temp";
+
 const showWeatherData = (data, unit, forecast) => {
   // Getting the region name constructor to convert country codes
   const regionNames = new Intl.DisplayNames(
@@ -24,18 +26,7 @@ const showWeatherData = (data, unit, forecast) => {
   }
 
   // Converting temperature from Kelvin to F or C
-  const convertTemp = (temp) => {
-    if (unit === 'c') {
-      let kelvin = temp
-      temp = kelvin - 273.15
-      temp = temp.toFixed()
-    } else if (unit === 'f') {
-      let kelvin = temp
-      temp = (kelvin -273.15) * 1.8 + 32
-      temp = temp.toFixed()
-    }
-    return temp
-  }
+  
 
   if (forecast) {
     console.log(data)
@@ -157,7 +148,7 @@ const showWeatherData = (data, unit, forecast) => {
         
         //Displaying temperature by hour
         let hourTemp = dataForecastList[i].main.temp
-        hourTemp = convertTemp(hourTemp)
+        hourTemp = convertTemp(hourTemp, unit, true)
         hourTemp = parseInt(hourTemp)
         dayTwoTemps.push(hourTemp)
 
@@ -185,7 +176,7 @@ const showWeatherData = (data, unit, forecast) => {
 
         //Displaying temperature by hour
         let hourTemp = dataForecastList[i].main.temp
-        hourTemp = convertTemp(hourTemp)
+        hourTemp = convertTemp(hourTemp, unit, true)
         hourTemp = parseInt(hourTemp)
         dayThreeTemps.push(hourTemp)
 
@@ -214,7 +205,7 @@ const showWeatherData = (data, unit, forecast) => {
 
         //Displaying temperature by hour
         let hourTemp = dataForecastList[i].main.temp
-        hourTemp = convertTemp(hourTemp)
+        hourTemp = convertTemp(hourTemp, unit, true)
         hourTemp = parseInt(hourTemp)
         dayFourTemps.push(hourTemp)
 
@@ -238,10 +229,10 @@ const showWeatherData = (data, unit, forecast) => {
 
     // Getting daily averages and showing in forecast
     const dayTwoSum = dayTwoTemps.reduce((a, b) => a + b, 0)
-    let dayTwoAverage = (dayTwoSum / dayTwoTemps.length).toFixed()
+    const dayTwoAverage = (dayTwoSum / dayTwoTemps.length).toFixed()
 
     const avgTwoDom = document.createElement('p')
-    avgTwoDom.innerText = dayTwoAverage
+    avgTwoDom.innerText = `${dayTwoAverage}°${unit}`
     avgTwoDom.classList.add('forecastAverage')
     dayTwoFlex.appendChild(avgTwoDom)
 
@@ -249,7 +240,7 @@ const showWeatherData = (data, unit, forecast) => {
     const dayThreeAverage = (dayThreeSum / dayThreeTemps.length).toFixed()
 
     const avgThreeDom = document.createElement('p')
-    avgThreeDom.innerText = dayThreeAverage
+    avgThreeDom.innerText = `${dayThreeAverage}°${unit}`
     avgThreeDom.classList.add('forecastAverage')
     dayThreeFlex.appendChild(avgThreeDom)
 
@@ -257,7 +248,7 @@ const showWeatherData = (data, unit, forecast) => {
     const dayFourAverage = (dayFourSum / dayFourTemps.length).toFixed()
 
     const avgFourDom = document.createElement('p')
-    avgFourDom.innerText = dayFourAverage
+    avgFourDom.innerText = `${dayFourAverage}°${unit}`
     avgFourDom.classList.add('forecastAverage')
     dayFourFlex.appendChild(avgFourDom)
 
@@ -265,37 +256,37 @@ const showWeatherData = (data, unit, forecast) => {
     const dayTwoHigh = Math.max(...dayTwoTemps)
     const dayTwoHighDom = document.createElement('p')
     dayTwoHighDom.classList.add('forecastHigh')
-    dayTwoHighDom.innerText = `High: ${dayTwoHigh}`
+    dayTwoHighDom.innerText = `High: ${dayTwoHigh}°${unit}`
     dayTwoHighLowFlex.appendChild(dayTwoHighDom)
 
     const dayTwoLow = Math.min(...dayTwoTemps)
     const dayTwoLowDom = document.createElement('p')
     dayTwoLowDom.classList.add('forecastLow')
-    dayTwoLowDom.innerText = `Low: ${dayTwoLow}`
+    dayTwoLowDom.innerText = `Low: ${dayTwoLow}°${unit}`
     dayTwoHighLowFlex.appendChild(dayTwoLowDom)
 
     const dayThreeHigh = Math.max(...dayThreeTemps)
     const dayThreeHighDom = document.createElement('p')
     dayThreeHighDom.classList.add('forecastHigh')
-    dayThreeHighDom.innerText = `High: ${dayThreeHigh}`
+    dayThreeHighDom.innerText = `High: ${dayThreeHigh}°${unit}`
     dayThreeHighLowFlex.appendChild(dayThreeHighDom)
 
     const dayThreeLow = Math.min(...dayThreeTemps)
     const dayThreeLowDom = document.createElement('p')
     dayThreeLowDom.classList.add('forecastLow')
-    dayThreeLowDom.innerText = `Low: ${dayThreeLow}`
+    dayThreeLowDom.innerText = `Low: ${dayThreeLow}°${unit}`
     dayThreeHighLowFlex.appendChild(dayThreeLowDom)
 
     const dayFourHigh = Math.max(...dayFourTemps)
     const dayFourHighDom = document.createElement('p')
     dayFourHighDom.classList.add('forecastHigh')
-    dayFourHighDom.innerText = `High: ${dayFourHigh}`
+    dayFourHighDom.innerText = `High: ${dayFourHigh}°${unit}`
     dayFourHighLowFlex.appendChild(dayFourHighDom)
 
     const dayFourLow = Math.min(...dayFourTemps)
     const dayFourLowDom = document.createElement('p')
     dayFourLowDom.classList.add('forecastLow')
-    dayFourLowDom.innerText = `Low: ${dayFourLow}`
+    dayFourLowDom.innerText = `Low: ${dayFourLow}°${unit}`
     dayFourHighLowFlex.appendChild(dayFourLowDom)
 
   } else {
@@ -310,7 +301,7 @@ const showWeatherData = (data, unit, forecast) => {
     }    
 
     // Getting daily weather data
-    let temp = convertTemp(data.main.temp)
+    let temp = convertTemp(data.main.temp, unit, true)
     const weather = data.weather[0].main
     const cityName = data.name
     const countryName = regionNames.of(data.sys.country)

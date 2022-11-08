@@ -3,6 +3,7 @@ import { getCurrentWeatherData } from './components/get-weather'
 import { getForecastWeatherData } from './components/get-weather'
 import { getCityCoordinates } from './components/get-coordinates'
 import { showWeatherData } from './components/show-weather-data'
+import { convertTemp } from './components/helpers/convert-temp'
 
 // Initially loading the HTML elements
 initialPageLoad()
@@ -57,4 +58,71 @@ forecastBtn.addEventListener('click', () => {
   forecast = true
   
   getWeather(location)
+})
+
+const updateTempText = () => {
+  const currentTemp = document.getElementById('currentTemp')
+  let currentTempUpdate = currentTemp.innerText.split('°')
+  currentTempUpdate = currentTempUpdate[0]
+  parseInt(currentTempUpdate)
+  currentTempUpdate = convertTemp(currentTempUpdate, unit, false)
+  currentTemp.innerText = `${currentTempUpdate}°${unit}`
+
+  const averageTemps = document.querySelectorAll('.forecastAverage')
+  if (averageTemps.length > 0) {
+    for (let i = 0; i < averageTemps.length; i++) {
+     let convertedTemp = averageTemps[i].innerText.split('°')
+     convertedTemp = convertedTemp[0]
+     parseInt(convertedTemp)
+     convertedTemp = convertTemp(convertedTemp, unit, false)
+     averageTemps[i].innerHTML = `${convertedTemp}°${unit}`
+    }
+  }
+
+  const highTemps = document.querySelectorAll('.forecastHigh')
+  if (highTemps.length > 0) {
+    for (let i = 0; i < highTemps.length; i++) {
+      let convertedTemp = highTemps[i].innerText.split('°')
+      convertedTemp = convertedTemp[0].split(' ')
+      convertedTemp = convertedTemp[1]
+      parseInt(convertedTemp)
+      convertedTemp = convertTemp(convertedTemp, unit, false)
+      highTemps[i].innerHTML = `High: ${convertedTemp}°${unit}`
+    }
+  }
+
+  const lowTemps = document.querySelectorAll('.forecastLow')
+  if (lowTemps.length > 0) {
+    for (let i = 0; i < lowTemps.length; i++) {
+      let convertedTemp = lowTemps[i].innerText.split('°')
+      convertedTemp = convertedTemp[0].split(' ')
+      convertedTemp = convertedTemp[1]
+      parseInt(convertedTemp)
+      convertedTemp = convertTemp(convertedTemp, unit, false)
+      lowTemps[i].innerHTML = `Low: ${convertedTemp}°${unit}`
+    }
+  }
+}
+
+// Listening for temperature slider to determine temp unit
+const tempSwitch = document.getElementById('tempSwitch')
+const tempC = document.getElementById('temperatureCText')
+const tempF = document.getElementById('temperatureFText')
+
+tempSwitch.addEventListener('change', () => {
+  if (tempSwitch.checked) {
+    tempC.classList.remove('showTemp')
+    tempC.classList.add('hideTemp')
+    tempF.classList.add('showTemp')
+    tempF.classList.remove('hideTemp')
+    unit = 'f'
+    updateTempText()
+  } else {
+    tempF.classList.remove('showTemp')
+    tempF.classList.add('hideTemp')
+    tempC.classList.add('showTemp')
+    tempC.classList.remove('hideTemp')
+    unit = 'c'
+    updateTempText()
+  }
 })
