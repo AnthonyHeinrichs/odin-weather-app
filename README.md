@@ -1,5 +1,5 @@
 # odin-weather-app
-A weather application that uses the Opean Weather Map API to get current weather and 
+A weather application that uses the Open Weather Map API to get current weather and 
 forecast weather for the next 3 days. 
 
 ## Live preview
